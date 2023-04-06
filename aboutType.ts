@@ -68,4 +68,30 @@ let badgirl: any = 1818;
 console.log(badboy + badgirl); //WTF
 
 //unknown
+//타입을 미리알 수 없을때 사용, 타입 확인 작업을 강제
 let gg: unknown;
+let ga = gg + 1; //에러 붐
+
+if (typeof gg === 'number') {
+  let ga = gg + 1;
+}
+
+if (typeof gg === 'string') {
+  let ga = gg.toLocaleUpperCase;
+}
+
+//never
+//never 타입을 사용하는 것은 코드의 안정성과 가독성을 높이기 때문
+//예외나 무한 루프와 같은 비정상적인 동작이 발생할 수 있는 상황에서 TypeScript 컴파일러가 이러한 동작을 감지하고 경고 또는 오류를 출력
+//실행되지 말아야 하거나, 예외를 발생 시킬때 씀
+
+const hoho = (name: string | number) => {
+  if (typeof name === 'string') {
+    return name + 'haha';
+  } else if (typeof name === 'number') {
+    return name + 100;
+  } else {
+    //실행되지 말아야할 구간임을 표현
+    name;
+  }
+};
