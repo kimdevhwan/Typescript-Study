@@ -15,7 +15,7 @@ type programmer = {
 
 let f: programmer = {
   name: '김동환',
-  skills: ['java', 'mysql'],
+  skills: ['java', 'mysql']
 };
 
 type name = string;
